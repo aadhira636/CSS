@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <style>
+      /* body{
+             background: linear-gradient(135deg, #6EE7B7, #3B82F6, #9333EA);
+             background-repeat: no-repeat;
+        } */
+      form {
+        background-color: beige;
+        width: 400px;
+        height: 400px;
+        color: black;
+        padding: 20px;
+        text-align: center;
+        /* margin: 200px; */
+        margin-left: 490px;
+        margin-top: 190px;
+        margin-bottom: 0px;
+        border: 3px solid rgb(0, 0, 0);
+        border-radius: 20px;
+      }
+      #name,
+      #email,
+      #password,
+      #description {
+        margin-right: 10px;
+        font-weight: bold;
+      }
+      #description {
+        margin-top: 0px;
+        margin-bottom: 0px;
+      }
+      #reset {
+        height: 30px;
+        width: 80px;
+        border: 1px solid rgb(223, 23, 23);
+        border-radius: 5px;
+        margin-top: 20px;
+        margin-right: 20px;
+        background-color: rgb(223, 23, 23);
+        color: white;
+        cursor: pointer;
+      }
+      #submit {
+        height: 30px;
+        width: 80px;
+        border: 1px solid rgb(4, 175, 4);
+        border-radius: 5px;
+        background-color: rgb(4, 175, 4);
+        color: white;
+        cursor: pointer;
+      }
+      #submit:hover {
+        background-color: rgb(2, 136, 2);
+        border: 1px solid rgb(2, 136, 2);
+      }
+      #reset:hover {
+        background-color: rgb(179, 16, 16);
+        border: 1px solid rgb(179, 16, 16);
+      }
+      .output {
+        margin-right: 40px;
+        margin-top: 30px;
+        margin-left: 60px;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <form novalidate class="myForm" id="myForm" onsubmit="submission(event)">
+        <header><h2>Login Form</h2></header>
+        <br />
+        <label id="name">Name:</label>
+        <input
+          type="text"
+          name="name"
+          placeholder="Enter your Name"
+          id="name-field"
+        /><br /><br />
+
+        <label id="email" aria-placeholder="Enter your Email">Email:</label>
+        <input
+          type="email"
+          name="email"
+          placeholder="Enter your Email"
+          required
+          id="email-field"
+        /><br /><br />
+
+        <label id="password">Password:</label>
+        <input
+          type="password"
+          placeholder="Enter your password"
+          required
+          id="pass-field"
+        /><br /><br />
+
+        <label id="description" for="description">Description:</label>
+        <textarea
+          type="description"
+          placeholder="Enter Description"
+          required
+          id="desc-field"
+        ></textarea
+        ><br />
+
+        <button id="reset" type="reset">Reset</button>
+        <button id="submit" type="submit">Submit</button><br /><br />
+      </form>
+      <div class="output">
+        Name: <span id="displayName"></span><br />
+        Email: <span id="displayEmail"></span><br />
+        Password: <span id="displayPassword"></span><br />
+      </div>
+    </div>
+
+    <script>
+      function submission(event) {
+        event.preventDefault();
+        const nameInput = document.getElementById("name-field").value;
+        const emailInput = document.getElementById("email-field").value;
+        const passwordInput = document.getElementById("pass-field").value;
+        const descInput = document.getElementById("desc-field").value;
+
+        if (!nameInput || !emailInput || !passwordInput || !descInput) {
+          window.alert("enter all req fields");
+        } else {
+          document.getElementById("displayName").textContent = nameInput;
+          document.getElementById("displayEmail").textContent = emailInput;
+          document.getElementById("displayPassword").textContent = passwordInput;
+        }
+      }
+    </script>
+  </body>
+</html>

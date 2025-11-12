@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #6ee7b7, #3b82f6, #9333ea);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Poppins", sans-serif;
+      }
+
+      form {
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.15);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        color: #f9fafb;
+        width: 400px;
+        padding: 30px;
+        text-align: center;
+      }
+
+      h2 {
+        color: #ffffff;
+        margin-bottom: 20px;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      input,
+      textarea {
+        width: 90%;
+        padding: 10px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 8px;
+        outline: none;
+        font-size: 14px;
+      }
+
+      input:focus,
+      textarea:focus {
+        border: 2px solid #3b82f6;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: white;
+      }
+
+      #submit,
+      #reset {
+        height: 35px;
+        width: 100px;
+        border-radius: 8px;
+        border: none;
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.3s;
+        margin: 10px;
+      }
+
+      #submit {
+        background-color: #10b981;
+      }
+
+      #submit:hover {
+        background-color: #059669;
+      }
+
+      #reset {
+        background-color: #ef4444;
+      }
+
+      #reset:hover {
+        background-color: #dc2626;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <form class="myForm" id="myForm" onsubmit="submission(event)">
+        <header><h2>Login Form</h2></header>
+        <br />
+
+        <label id="name">Name:</label>
+        <input
+          type="text"
+          name="name"
+          placeholder="Enter your Name"
+          required
+        /><br /><br />
+
+        <label id="email" aria-placeholder="Enter your Email">Email:</label>
+        <input
+          type="email"
+          name="email"
+          placeholder="Enter your Email"
+          required
+        /><br/><br/>
+
+        <label id="password">Password:</label>
+        <input
+          type="password"
+          placeholder="Enter your password"
+          required
+        /><br /><br />
+
+        <button id="reset">Reset</button>
+        <button id="submit">Submit</button>
+        <br /><br />
+
+        <label id="description" for="description">Description:</label>
+        <textarea
+          type="description"
+          name="Write here"
+          placeholder="Enter Description"
+          required
+        ></textarea
+        ><br />
+      </form>
+      <div class="output">
+        Name: <span id="displayName"></span><br />
+        Email: <span id="displayEmail"></span><br />
+        Password: <span id="displayPassword"></span><br />
+      </div>
+    </div>
+
+    <script>
+      function submission(event) {
+        event.preventDefault();
+        const nameInput = document.getElementById("name-field").value;
+        const emailInput = document.getElementById("email-field").value;
+        const passwordInput = document.getElementById("pass-field").value;
+        const descInput = document.getElementById("desc-field").value;
+
+        if (!nameInput || !emailInput || !passwordInput || !descInput) {
+          window.alert("enter all req fields");
+        } else {
+          document.getElementById("displayName").textContent = nameInput;
+          document.getElementById("displayEmail").textContent = emailInput;
+          document.getElementById("displayPassword").textContent = passwordInput;
+        }
+      }
+    </script>
+
+  </body>
+</html>
